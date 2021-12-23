@@ -7,6 +7,7 @@ import FeedbackData from './data/FeedbackData';
 
 const App = () => {
   const [feedback, setFeedback] = useState([]);
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     setFeedback(FeedbackData);
@@ -19,14 +20,28 @@ const App = () => {
     }
   };
 
+  const handleThemeChange = () => {
+    setDark(!dark);
+  };
+
   return (
-    <div className='bg-customBlue2 h-screen overflow-y-scroll'>
-      <NavBar title='Simple Feedback UI' />
-      <div>
-        <FeedbackItemList
-          feedback={feedback}
-          onFeedbackDelete={handleFeedbackDelete}
+    <div className={dark ? 'dark' : ''}>
+      <div
+        className={
+          'bg-customWhite dark:bg-customBlue2 h-screen overflow-y-scroll'
+        }
+      >
+        <NavBar
+          title='Simple Feedback UI'
+          onThemeChange={handleThemeChange}
+          dark={dark}
         />
+        <div>
+          <FeedbackItemList
+            feedback={feedback}
+            onFeedbackDelete={handleFeedbackDelete}
+          />
+        </div>
       </div>
     </div>
   );
