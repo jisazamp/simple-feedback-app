@@ -6,6 +6,7 @@ const NavBar = ({ title, dark, onThemeChange }) => {
       <h1 className='font-bold text-xl md:text-2xl text-customBlue3 dark:text-customWhite'>
         {title}
       </h1>
+      
       <button
         className='px-3 rounded py-2 stroke-customBlue3 dark:stroke-customWhite transition ease-in 300 hover:bg-customBlue3
          hover:stroke-customWhite dark:hover:bg-customWhite dark:hover:stroke-customBlue3'

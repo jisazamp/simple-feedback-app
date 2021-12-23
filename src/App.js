@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 import NavBar from './components/common/navBar';
 import FeedbackItemList from './components/feedbackItemList';
+import FeedbackStats from './components/feedbackStats';
 
 import FeedbackData from './data/FeedbackData';
 
@@ -27,9 +28,7 @@ const App = () => {
   return (
     <div className={dark ? 'dark' : ''}>
       <div
-        className={
-          'bg-customWhite dark:bg-customBlue2 h-screen overflow-y-scroll'
-        }
+        className={'bg-white dark:bg-customBlue2 h-screen overflow-y-scroll'}
       >
         <NavBar
           title='Simple Feedback UI'
@@ -37,6 +36,7 @@ const App = () => {
           dark={dark}
         />
         <div>
+          <FeedbackStats feedback={feedback} />
           <FeedbackItemList
             feedback={feedback}
             onFeedbackDelete={handleFeedbackDelete}
