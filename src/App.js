@@ -1,7 +1,14 @@
 import React from 'react';
 
+import NavBar from './components/common/navBar';
+
 const App = () => {
-  return <div>Hola mundo</div>;
+  return (
+    <>
+      <NavBar title='Simple Feedback UI' />
+      <div></div>
+    </>
+  );
 };
 
 export default App;
