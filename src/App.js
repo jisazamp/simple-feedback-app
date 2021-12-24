@@ -5,6 +5,7 @@ import FeedbackItemList from './components/feedbackItemList';
 import FeedbackStats from './components/feedbackStats';
 
 import FeedbackData from './data/FeedbackData';
+import FeedbackForm from './components/feedbackForm';
 
 const App = () => {
   const [feedback, setFeedback] = useState([]);
@@ -36,6 +37,7 @@ const App = () => {
           dark={dark}
         />
         <div>
+          <FeedbackForm />
           <FeedbackStats feedback={feedback} />
           <FeedbackItemList
             feedback={feedback}
