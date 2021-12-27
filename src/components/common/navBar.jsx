@@ -2,14 +2,14 @@ import PropTypes from 'prop-types';
 
 const NavBar = ({ title, dark, onThemeChange }) => {
   return (
-    <nav className='py-4 px-4 flex items-center justify-between bg-gray-200 dark:bg-customBlue3'>
-      <h1 className='font-bold text-2xl text-customBlue3 dark:text-customWhite'>
+    <nav className='py-4 px-4 flex items-center justify-between bg-color1 bg-opacity-50 dark:bg-customBlue3'>
+      <h1 className='font-bold text-2xl text-color9 dark:text-customWhite'>
         {title}
       </h1>
 
       <button
-        className='px-3 rounded py-2 stroke-customBlue3 dark:stroke-customWhite transition ease-in 300 hover:bg-customBlue3
-         hover:stroke-customWhite dark:hover:bg-customWhite dark:hover:stroke-customBlue3'
+        className='px-3 rounded py-2 stroke-color9 dark:stroke-customWhite transition ease-in 500 md:hover:bg-color9
+         md:hover:stroke-color1 md:dark:hover:bg-customWhite md:dark:hover:stroke-customBlue3'
         onClick={onThemeChange}
       >
         {dark ? (

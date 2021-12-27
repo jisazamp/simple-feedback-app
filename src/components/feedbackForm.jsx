@@ -1,9 +1,13 @@
 import { useState } from 'react';
+import RatingSelect from './RatingSelect';
 
-const FeedbackForm = () => {
+import PropTypes from 'prop-types';
+
+const FeedbackForm = ({ onFeedbackAdd }) => {
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
+  const [rating, setRating] = useState(0);
 
   const handleTextChange = (e) => {
     if (text === '') {
@@ -20,18 +24,37 @@ const FeedbackForm = () => {
     setText(e.target.value);
   };
 
-  const handleTextSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form recibido');
+
+    if (text.trim().length > 10 && rating !== 0) {
+      const newFeedback = {
+        text: text,
+        rating: rating,
+      };
+
+      onFeedbackAdd(newFeedback);
+    }
+  };
+
+  const handleRating = (rating) => {
+    setRating(() => {
+      return rating;
+    });
   };
 
   return (
-    <div className='m-6'>
-      <div className='bg-gray-200 border border-gray-300 max-w-2xl dark:border-none shadow-lg flex justify-center mx-auto rounded-lg py-4 px-10 relative dark:bg-customBlue3'>
-        <form className='p-3 flex-1'>
-          <h2 className='text-gray-800 text-lg font-bold text-center dark:text-customWhite mb-3'>
+    <div className='m-4'>
+      <div
+        className='bg-color3 border border-gray-300 max-w-2xl dark:border-none shadow-lg flex justify-center
+       mx-auto rounded-lg py-2 px-8 relative dark:bg-customBlue3'
+      >
+        <form className='p-3 flex-1' onSubmit={handleSubmit}>
+          <h2 className='text-color9 text-lg font-bold text-center dark:text-customWhite mb-3'>
             ¿Cómo calificarías tu servicio con nosotros?
           </h2>
+
+          <RatingSelect rating={rating} onRating={handleRating} />
 
           <div className='relative rounded-md'>
             <textarea
@@ -45,24 +68,28 @@ const FeedbackForm = () => {
             <div className='relative justify-end md:inset-y-0 md:right-3 flex items-center md:absolute'>
               <button
                 disabled={btnDisabled}
-                onClick={handleTextSubmit}
                 type='submit'
                 className='px-6 py-2.5 w-full rounded-md m-2 bg-white font-semibold text-customBlue3 dark:bg-customBlue1 dark:text-black
-                hover:bg-customBlue3 hover:text-white disabled:cursor-not-allowed disabled:bg-gray-300 dark:disabled:bg-gray-300'
+                md:hover:bg-customBlue1 md:hover:text-white disabled:cursor-not-allowed disabled:bg-gray-300 dark:disabled:bg-gray-300'
               >
                 Enviar
               </button>
             </div>
-            {message && (
-              <div className='mt-1 flex items-center justify-start'>
-                <span className='font-semibold text-customRed'>{message}</span>
-              </div>
-            )}
           </div>
+
+          {message && (
+            <div className='mt-1 flex items-center justify-start'>
+              <span className='font-semibold text-customRed'>{message}</span>
+            </div>
+          )}
         </form>
       </div>
     </div>
   );
+};
+
+FeedbackForm.propTypes = {
+  onFeedbackAdd: PropTypes.func.isRequired,
 };
 
 export default FeedbackForm;

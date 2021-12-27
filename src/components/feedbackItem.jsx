@@ -5,15 +5,15 @@ const FeedbackItem = ({ item, onDelete }) => {
 
   return (
     <div className='m-6'>
-      <div className='bg-gray-200 border border-gray-300 dark:border-none shadow-lg max-w-lg flex justify-items-start mx-auto rounded-lg py-4 px-10 relative dark:bg-customBlue3'>
+      <div className='bg-color3 border border-color4 dark:border dark:border-customBlue3 shadow-lg max-w-lg flex justify-items-start mx-auto rounded-lg py-4 px-10 relative dark:bg-customBlue3'>
         <span
           className='absolute top-1 -left-10 inline-flex items-center justify-center py-3 px-4 text-md font-bold leading-none
-         text-customWhite transform translate-x-1/2 -translate-y-1/2 bg-customRed rounded-full'
+         text-customWhite transform translate-x-1/2 -translate-y-1/2 bg-color9 dark:bg-customRed rounded-full'
         >
           {rating}
         </span>
 
-        <p className='text-gray-700 dark:text-customWhite'>{text}</p>
+        <p className='text-gray-900 dark:text-customWhite'>{text}</p>
 
         <button
           className='top-0 right-0 absolute m-2'
@@ -21,7 +21,7 @@ const FeedbackItem = ({ item, onDelete }) => {
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'
-            className='h-5 w-5 md:h-4 md:w-4 stroke-customBlue3 dark:stroke-customWhite'
+            className='h-5 w-5 md:h-4 md:w-4 stroke-color9 dark:stroke-customWhite'
             fill='none'
             viewBox='0 0 24 24'
           >

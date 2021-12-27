@@ -12,10 +12,10 @@ const FeedbackStats = ({ feedback }) => {
   return (
     <div className='m-3'>
       <div className='flex items-center justify-between max-w-lg mx-auto'>
-        <h4 className='text-gray-700 dark:text-customWhite font-semibold'>
+        <h4 className='text-color9 dark:text-customWhite font-semibold'>
           {feedback.length} reseñas
         </h4>
-        <h4 className='text-gray-700 dark:text-customWhite font-semibold'>
+        <h4 className='text-color9 dark:text-customWhite font-semibold'>
           Calificación promedio: {isNaN(average) ? 0 : average}
         </h4>
       </div>

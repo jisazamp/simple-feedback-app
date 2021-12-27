@@ -9,7 +9,7 @@ import FeedbackForm from './components/feedbackForm';
 
 const App = () => {
   const [feedback, setFeedback] = useState([]);
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
 
   useEffect(() => {
     setFeedback(FeedbackData);
@@ -22,22 +22,26 @@ const App = () => {
     }
   };
 
+  const handleFeedbackAdd = (el) => {
+    el['id'] = feedback.length + 1;
+    const newFeedback = [el, ...feedback];
+    setFeedback(newFeedback);
+  };
+
   const handleThemeChange = () => {
     setDark(!dark);
   };
 
   return (
     <div className={dark ? 'dark' : ''}>
-      <div
-        className={'bg-white dark:bg-customBlue2 h-screen overflow-y-scroll'}
-      >
+      <div className={'bg-white dark:bg-customBlue2 h-screen overflow-auto'}>
         <NavBar
           title='Simple Feedback UI'
           onThemeChange={handleThemeChange}
           dark={dark}
         />
         <div>
-          <FeedbackForm />
+          <FeedbackForm onFeedbackAdd={handleFeedbackAdd} />
           <FeedbackStats feedback={feedback} />
           <FeedbackItemList
             feedback={feedback}
