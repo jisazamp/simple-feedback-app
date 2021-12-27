@@ -95,7 +95,7 @@ const FeedbackForm = ({ onFeedbackAdd }) => {
                 disabled={btnDisabled}
                 type='submit'
                 className='px-6 py-2.5 w-full rounded-md m-2 bg-white font-semibold text-customBlue3 dark:bg-customBlue1 dark:text-black
-                md:hover:bg-customBlue1 md:hover:text-white disabled:cursor-not-allowed disabled:bg-gray-300 dark:disabled:bg-gray-300'
+                md:hover:bg-customBlue1 md:hover:text-black disabled:cursor-not-allowed disabled:bg-gray-300 dark:disabled:bg-gray-300'
               >
                 Enviar
               </button>
