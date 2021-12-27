@@ -1,3 +1,7 @@
+# Project preview
+
+A preview of the app it's available here: https://simple-feedback.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
