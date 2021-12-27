@@ -34,6 +34,10 @@ const FeedbackForm = ({ onFeedbackAdd }) => {
       };
 
       onFeedbackAdd(newFeedback);
+
+      setText('');
+      setBtnDisabled(true);
+      setRating(0);
     }
   };
 
