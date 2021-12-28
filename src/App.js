@@ -1,21 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import NavBar from './components/common/navBar';
 import FeedbackItemList from './components/feedbackItemList';
 import FeedbackStats from './components/feedbackStats';
 
-import FeedbackData from './data/FeedbackData';
 import FeedbackForm from './components/feedbackForm';
 
 const App = () => {
   // State
   const [feedback, setFeedback] = useState([]);
   const [dark, setDark] = useState(true);
-
-  // Load the dummy feedback data
-  useEffect(() => {
-    setFeedback(FeedbackData);
-  }, []);
 
   const handleFeedbackDelete = (id) => {
     // Prompt user for confirmation

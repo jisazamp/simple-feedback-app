@@ -26,8 +26,8 @@ const FeedbackItem = ({ item, onDelete }) => {
     <div className='m-6'>
       {/* Card container */}
       <div
-        className='bg-color1 border border-color2 dark:border dark:border-customBlue3 shadow-lg max-w-lg 
-      flex justify-items-start mx-auto rounded-lg py-4 px-10 relative dark:bg-customBlue3'
+        className='bg-gray-100 border border-gray-200 dark:border dark:border-customBlue3 shadow-lg max-w-lg 
+      flex justify-items-start mx-auto rounded-lg py-4 px-10 relative dark:bg-customBlue3 break-all'
       >
         {/* Circle rating container, located at the top left */}
         <span

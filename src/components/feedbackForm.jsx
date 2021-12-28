@@ -18,6 +18,9 @@ const FeedbackForm = ({ onFeedbackAdd }) => {
     } else if (text !== '' && text.trim().length <= 10) {
       setBtnDisabled(true);
       setMessage('La reseña debe contener al menos 10 caracteres.');
+    } else if (text !== '' && text.trim().length > 300) {
+      setBtnDisabled(true);
+      setMessage('La reseña no puede superar los 300 caracteres.');
     } else {
       setBtnDisabled(false);
       setMessage(null);
@@ -65,7 +68,7 @@ const FeedbackForm = ({ onFeedbackAdd }) => {
   return (
     <div className='m-4'>
       <div
-        className='bg-color1 border border-gray-300 max-w-2xl dark:border-none shadow-lg flex justify-center
+        className='bg-gray-100 border border-gray-300 max-w-2xl dark:border-none shadow-lg flex justify-center
        mx-auto rounded-lg py-2 px-8 relative dark:bg-customBlue3'
       >
         {/* Form start */}
