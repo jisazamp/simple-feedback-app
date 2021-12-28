@@ -13,7 +13,7 @@ const RatingSelect = ({ rating, onRating }) => {
             className={`${
               rating !== index + 1
                 ? 'bg-white'
-                : 'bg-color5 dark:bg-color7 text-white'
+                : 'bg-color9 dark:bg-customRed text-white'
             } h-12 w-12 flex items-center justify-center text-center rounded-full shadow-md
             hover:cursor-pointer hover:bg-color4 transition-all duration-200`}
           >

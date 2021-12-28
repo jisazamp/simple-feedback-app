@@ -11,7 +11,7 @@ const FeedbackStats = ({ feedback }) => {
 
   return (
     <div className='m-3'>
-      <div className='flex items-center justify-between max-w-lg mx-auto'>
+      <div className='px-4 flex items-center justify-between max-w-lg mx-auto'>
         <h4 className='text-color9 dark:text-customWhite font-semibold'>
           {feedback.length} reseñas
         </h4>

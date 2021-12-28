@@ -39,7 +39,7 @@ const NavBar = ({ title, dark, onThemeChange }) => {
   };
 
   return (
-    <nav className='py-4 px-4 flex items-center justify-between bg-color1 bg-opacity-50 dark:bg-customBlue3'>
+    <nav className='py-4 px-4 flex items-center justify-between bg-gray-200 bg-opacity-50 dark:bg-customBlue3'>
       {/* Navbar title */}
       <h1 className='font-bold text-2xl text-color9 dark:text-customWhite'>
         {title}
