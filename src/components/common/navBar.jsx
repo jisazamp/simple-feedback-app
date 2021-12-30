@@ -39,6 +39,24 @@ const NavBar = ({ title, dark, onThemeChange }) => {
     );
   };
 
+  const renderQuestionButton = () => {
+    return (
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        className='h-6 w-6 visible md:invisible stroke-color9 dark:stroke-customWhite mt-0.5'
+        fill='none'
+        viewBox='0 0 24 24'
+      >
+        <path
+          strokeLinecap='round'
+          strokeLinejoin='round'
+          strokeWidth={2}
+          d='M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+        />
+      </svg>
+    );
+  };
+
   return (
     <nav className='py-4 px-4 flex items-center justify-between bg-gray-200 bg-opacity-50 dark:bg-customBlue3'>
       {/* Navbar title */}
@@ -47,13 +65,16 @@ const NavBar = ({ title, dark, onThemeChange }) => {
       </h1>
 
       {/* Theme button */}
-      <button
-        className='px-3 rounded py-2 stroke-color9 dark:stroke-customWhite transition ease-in 500 md:hover:bg-color9
+      <div className='flex items-center cursor-pointer space-x-2'>
+        <Link to='about'>{renderQuestionButton()}</Link>
+        <button
+          className='px-3 rounded py-2 stroke-color9 dark:stroke-customWhite transition ease-in 500 md:hover:bg-color9
          md:hover:stroke-color1 md:dark:hover:bg-customWhite md:dark:hover:stroke-customBlue3'
-        onClick={onThemeChange}
-      >
-        {renderThemeButton()}
-      </button>
+          onClick={onThemeChange}
+        >
+          {renderThemeButton()}
+        </button>
+      </div>
     </nav>
   );
 };
