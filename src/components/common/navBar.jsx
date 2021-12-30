@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const NavBar = ({ title, dark, onThemeChange }) => {
   const renderThemeButton = () => {
@@ -42,7 +43,7 @@ const NavBar = ({ title, dark, onThemeChange }) => {
     <nav className='py-4 px-4 flex items-center justify-between bg-gray-200 bg-opacity-50 dark:bg-customBlue3'>
       {/* Navbar title */}
       <h1 className='font-bold text-2xl text-color9 dark:text-customWhite'>
-        {title}
+        <Link to='/'>{title}</Link>
       </h1>
 
       {/* Theme button */}

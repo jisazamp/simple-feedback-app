@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import NavBar from './components/common/navBar';
 import FeedbackItemList from './components/feedbackItemList';
 import FeedbackStats from './components/feedbackStats';
-
 import FeedbackForm from './components/feedbackForm';
+import AboutPage from './pages/AboutPage';
+
+import AboutIconLink from './components/AboutIconLink';
 
 const App = () => {
   // State
@@ -34,24 +37,37 @@ const App = () => {
   };
 
   return (
-    <div className={dark ? 'dark' : ''}>
-      <div className={'bg-white dark:bg-customBlue2 h-screen overflow-auto'}>
-        <NavBar
-          title='Simple Feedback UI'
-          onThemeChange={handleThemeChange}
-          dark={dark}
-        />
-
-        <div>
-          <FeedbackForm onFeedbackAdd={handleFeedbackAdd} />
-          <FeedbackStats feedback={feedback} />
-          <FeedbackItemList
-            feedback={feedback}
-            onFeedbackDelete={handleFeedbackDelete}
+    <BrowserRouter>
+      <div className={dark ? 'dark relative' : 'relative'}>
+        <div className={'bg-white dark:bg-customBlue2 h-screen overflow-auto'}>
+          <NavBar
+            title='Simple Feedback UI'
+            onThemeChange={handleThemeChange}
+            dark={dark}
           />
+
+          <Routes>
+            <Route path='/about' element={<AboutPage />} />
+            <Route
+              path='/'
+              exact
+              element={
+                <div>
+                  <FeedbackForm onFeedbackAdd={handleFeedbackAdd} />
+                  <FeedbackStats feedback={feedback} />
+                  <FeedbackItemList
+                    feedback={feedback}
+                    onFeedbackDelete={handleFeedbackDelete}
+                  />
+
+                  <AboutIconLink />
+                </div>
+              }
+            />
+          </Routes>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 };
 
