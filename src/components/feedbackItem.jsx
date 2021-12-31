@@ -1,8 +1,14 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 
-const FeedbackItem = ({ item, onDelete }) => {
+import FeedbackContext from '../context/FeedbackContext';
+
+const FeedbackItem = ({ item }) => {
   // Destructure the item props
   const { id, rating, text } = item;
+
+  // Context state
+  const { handleFeedbackDelete } = useContext(FeedbackContext);
 
   const renderDeleteSVG = () => {
     return (
@@ -18,6 +24,18 @@ const FeedbackItem = ({ item, onDelete }) => {
           strokeWidth={2}
           d='M6 18L18 6M6 6l12 12'
         />
+      </svg>
+    );
+  };
+
+  const renderEditSVG = () => {
+    return (
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        className='h-5 w-5 md:h-4 md:w-4 stroke-color9 dark:stroke-customWhite fill-color9 dark:fill-customWhite'
+        viewBox='0 0 20 20'
+      >
+        <path d='M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z' />
       </svg>
     );
   };
@@ -40,13 +58,22 @@ const FeedbackItem = ({ item, onDelete }) => {
         {/* Feedback description */}
         <p className='text-gray-900 dark:text-customWhite'>{text}</p>
 
-        {/* Feedback deletion button */}
-        <button
-          className='top-0 right-0 absolute m-2'
-          onClick={() => onDelete(id)}
-        >
-          {renderDeleteSVG()}
-        </button>
+        {/* Feedback delete button */}
+        <div>
+          <button
+            className='top-0 right-0 absolute m-2'
+            onClick={() => handleFeedbackDelete(id)}
+          >
+            {renderDeleteSVG()}
+          </button>
+
+          <button
+            className='top-0 right-6 md:right-5 absolute m-2'
+            onClick={() => console.log('Edit button')}
+          >
+            {renderEditSVG()}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -54,7 +81,6 @@ const FeedbackItem = ({ item, onDelete }) => {
 
 FeedbackItem.propTypes = {
   item: PropTypes.object.isRequired,
-  onDelete: PropTypes.func.isRequired,
 };
 
 export default FeedbackItem;

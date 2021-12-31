@@ -6,7 +6,7 @@ const AboutIconLink = () => {
       <div className='invisible md:visible'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='h-10 w-10 stroke-gray-600 dark:stroke-customWhite absolute right-3 bottom-3
+          className='h-8 w-8 stroke-gray-600 dark:stroke-customWhite absolute right-3 bottom-3
       hover:stroke-color9 dark:hover:stroke-color9 cursor-pointer transition-all duration-200 ease-in'
           fill='none'
           viewBox='0 0 24 24'

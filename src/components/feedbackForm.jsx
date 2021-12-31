@@ -1,14 +1,17 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useState, useContext } from 'react';
 
 import RatingSelect from './RatingSelect';
+import FeedbackContext from '../context/FeedbackContext';
 
-const FeedbackForm = ({ onFeedbackAdd }) => {
+const FeedbackForm = () => {
   // State variables
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
   const [rating, setRating] = useState(0);
+
+  // Context global state
+  const { handleFeedbackAdd } = useContext(FeedbackContext);
 
   const handleTextChange = (e) => {
     // Sanity checks for the user input
@@ -43,7 +46,7 @@ const FeedbackForm = ({ onFeedbackAdd }) => {
         };
 
         // Call the paretn function to add a new feedback item
-        onFeedbackAdd(newFeedback);
+        handleFeedbackAdd(newFeedback);
 
         // Reset the form state
         setText('');
@@ -116,10 +119,6 @@ const FeedbackForm = ({ onFeedbackAdd }) => {
       </div>
     </div>
   );
-};
-
-FeedbackForm.propTypes = {
-  onFeedbackAdd: PropTypes.func.isRequired,
 };
 
 export default FeedbackForm;
