@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 
 import RatingSelect from './RatingSelect';
 import FeedbackContext from '../context/FeedbackContext';
@@ -11,7 +11,22 @@ const FeedbackForm = () => {
   const [rating, setRating] = useState(0);
 
   // Context global state
-  const { handleFeedbackAdd } = useContext(FeedbackContext);
+  const { feedbackEdit, handleFeedbackAdd, handleFeedbackUpdate } =
+    useContext(FeedbackContext);
+
+  // Effect whenever the feedbackEdit object changes
+  useEffect(() => {
+    // Destructure the object properties
+    const { edit, item } = feedbackEdit;
+    const { text, rating } = item;
+
+    // Set these properties to the current form
+    if (edit) {
+      setText(text);
+      setRating(rating);
+      setBtnDisabled(false);
+    }
+  }, [feedbackEdit]);
 
   const handleTextChange = (e) => {
     // Sanity checks for the user input
@@ -46,7 +61,11 @@ const FeedbackForm = () => {
         };
 
         // Call the paretn function to add a new feedback item
-        handleFeedbackAdd(newFeedback);
+        if (feedbackEdit.edit) {
+          handleFeedbackUpdate(feedbackEdit.item.id, newFeedback);
+        } else {
+          handleFeedbackAdd(newFeedback);
+        }
 
         // Reset the form state
         setText('');

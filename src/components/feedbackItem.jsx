@@ -8,7 +8,8 @@ const FeedbackItem = ({ item }) => {
   const { id, rating, text } = item;
 
   // Context state
-  const { handleFeedbackDelete } = useContext(FeedbackContext);
+  const { handleFeedbackDelete, handleFeedbackEdit } =
+    useContext(FeedbackContext);
 
   const renderDeleteSVG = () => {
     return (
@@ -45,7 +46,7 @@ const FeedbackItem = ({ item }) => {
       {/* Card container */}
       <div
         className='bg-gray-100 border border-gray-200 dark:border dark:border-customBlue3 shadow-lg max-w-lg 
-      flex justify-items-start mx-auto rounded-lg py-4 px-10 relative dark:bg-customBlue3 break-all'
+      flex justify-items-start mx-auto rounded-lg py-6 px-10 relative dark:bg-customBlue3 break-all'
       >
         {/* Circle rating container, located at the top left */}
         <span
@@ -67,9 +68,10 @@ const FeedbackItem = ({ item }) => {
             {renderDeleteSVG()}
           </button>
 
+          {/* Feedback edit button */}
           <button
             className='top-0 right-6 md:right-5 absolute m-2'
-            onClick={() => console.log('Edit button')}
+            onClick={() => handleFeedbackEdit(item)}
           >
             {renderEditSVG()}
           </button>

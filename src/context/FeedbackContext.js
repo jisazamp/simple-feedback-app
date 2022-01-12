@@ -11,10 +11,15 @@ export const FeedbackProvider = ({ children }) => {
     },
     {
       id: 2,
-      text: 'I too come from context',
+      text: 'Yo también vengo del context',
       rating: 1,
     },
   ]);
+
+  const [feedbackEdit, setFeedbackEdit] = useState({
+    item: {},
+    edit: false,
+  });
 
   const handleFeedbackDelete = (id) => {
     // Prompt user for confirmation
@@ -34,9 +39,30 @@ export const FeedbackProvider = ({ children }) => {
     setFeedback(newFeedback);
   };
 
+  const handleFeedbackUpdate = (id, updatedItem) => {
+    // Update the object
+    setFeedback(
+      feedback.map((el) => (el.id === id ? { ...el, ...updatedItem } : el))
+    );
+
+    // Reset the feedback edit
+    setFeedbackEdit({ item: {}, edit: false });
+  };
+
+  const handleFeedbackEdit = (item) => {
+    setFeedbackEdit({ item, edit: true });
+  };
+
   return (
     <FeedbackContext.Provider
-      value={{ feedback, handleFeedbackDelete, handleFeedbackAdd }}
+      value={{
+        feedback,
+        feedbackEdit,
+        handleFeedbackDelete,
+        handleFeedbackAdd,
+        handleFeedbackEdit,
+        handleFeedbackUpdate,
+      }}
     >
       {children}
     </FeedbackContext.Provider>
