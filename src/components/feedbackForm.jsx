@@ -90,13 +90,12 @@ const FeedbackForm = () => {
   return (
     <div className='m-4'>
       <div
-        className='bg-gray-100 border border-gray-300 max-w-2xl dark:border-none shadow-lg flex justify-center
-       mx-auto rounded-lg py-2 px-8 relative dark:bg-customBlue3'
+        className='relative flex justify-center max-w-2xl px-8 py-2 mx-auto bg-gray-100 border border-gray-300 rounded-lg shadow-lg dark:border-none dark:bg-customBlue3'
       >
         {/* Form start */}
-        <form className='p-3 flex-1' onSubmit={handleSubmit}>
+        <form className='flex-1 p-3' onSubmit={handleSubmit}>
           {/* Form header */}
-          <h2 className='text-color9 text-lg font-bold text-center dark:text-customWhite mb-3'>
+          <h2 className='mb-3 text-lg font-bold text-center text-color9 dark:text-customWhite'>
             ¿Cómo calificarías tu servicio con nosotros?
           </h2>
 
@@ -109,13 +108,13 @@ const FeedbackForm = () => {
             <textarea
               onChange={handleTextChange}
               type='text'
-              className='block w-full md:w-3/4 pl-3 py-3 sm:text-sm border-gray-300 rounded-md break-all'
+              className='block w-full py-3 pl-3 break-all border-gray-300 rounded-md md:w-3/4 sm:text-sm'
               placeholder='Escribe una reseña'
               value={text}
             ></textarea>
 
             {/* Submit button */}
-            <div className='relative justify-end md:inset-y-0 md:right-3 flex items-center md:absolute'>
+            <div className='relative flex items-center justify-end md:inset-y-0 md:right-3 md:absolute'>
               <button
                 disabled={btnDisabled}
                 type='submit'
@@ -129,7 +128,7 @@ const FeedbackForm = () => {
 
           {/* If there's any error message, display it */}
           {message && (
-            <div className='mt-1 flex items-center justify-start'>
+            <div className='flex items-center justify-start mt-1'>
               <span className='font-semibold text-customRed'>{message}</span>
             </div>
           )}

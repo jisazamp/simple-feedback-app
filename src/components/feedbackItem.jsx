@@ -46,7 +46,7 @@ const FeedbackItem = ({ item }) => {
       {/* Card container */}
       <div
         className='bg-gray-100 border border-gray-200 dark:border dark:border-customBlue3 shadow-lg max-w-lg 
-      flex justify-items-start mx-auto rounded-lg py-6 px-10 relative dark:bg-customBlue3 break-all'
+      flex justify-items-start mx-auto rounded-lg py-6 px-7 relative dark:bg-customBlue3 break-all'
       >
         {/* Circle rating container, located at the top left */}
         <span
@@ -57,7 +57,7 @@ const FeedbackItem = ({ item }) => {
         </span>
 
         {/* Feedback description */}
-        <p className='text-gray-900 dark:text-customWhite'>{text}</p>
+        <p className='text-gray-900 dark:text-customWhite mt-1.5'>{text}</p>
 
         {/* Feedback delete button */}
         <div>

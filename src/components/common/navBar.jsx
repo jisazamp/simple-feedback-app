@@ -8,7 +8,7 @@ const NavBar = ({ title, dark, onThemeChange }) => {
       return (
         <svg
           xmlns='http://www.w3.org/2000/svg'
-          className='h-6 w-6'
+          className='w-6 h-6'
           fill='none'
           viewBox='0 0 24 24'
         >
@@ -25,7 +25,7 @@ const NavBar = ({ title, dark, onThemeChange }) => {
     return (
       <svg
         xmlns='http://www.w3.org/2000/svg'
-        className='h-6 w-6'
+        className='w-6 h-6'
         fill='none'
         viewBox='0 0 24 24'
       >
@@ -58,18 +58,17 @@ const NavBar = ({ title, dark, onThemeChange }) => {
   };
 
   return (
-    <nav className='py-4 px-4 flex items-center justify-between bg-gray-200 bg-opacity-50 dark:bg-customBlue3'>
+    <nav className='flex items-center justify-between px-4 py-4 bg-gray-200 bg-opacity-50 dark:bg-customBlue3'>
       {/* Navbar title */}
-      <h1 className='font-bold text-2xl text-color9 dark:text-customWhite'>
+      <h1 className='text-2xl font-bold text-color9 dark:text-customWhite'>
         <Link to='/'>{title}</Link>
       </h1>
 
       {/* Theme button */}
-      <div className='flex items-center cursor-pointer space-x-2'>
+      <div className='flex items-center space-x-2 cursor-pointer'>
         <Link to='about'>{renderQuestionButton()}</Link>
         <button
-          className='px-3 rounded py-2 stroke-color9 dark:stroke-customWhite transition ease-in 500 md:hover:bg-color9
-         md:hover:stroke-color1 md:dark:hover:bg-customWhite md:dark:hover:stroke-customBlue3'
+          className='px-3 py-2 transition ease-in rounded stroke-color9 dark:stroke-customWhite 500 md:hover:bg-color9 md:hover:stroke-color1 md:dark:hover:bg-customWhite md:dark:hover:stroke-customBlue3'
           onClick={onThemeChange}
         >
           {renderThemeButton()}
